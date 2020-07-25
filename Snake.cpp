@@ -76,25 +76,9 @@ void Snake::move() {
     m_snakeBody[0].setPosition(m_position);
 }
 
-/*
-// NOT FINISHED
-// Check if the snake hit something, and reset the position of the snake
-void Snake::hitSomething() {
-    if (getGlobalBounds().left < 0 || getGlobalBounds().top < 0 || getGlobalBounds().top + getGlobalBounds().height > 600
-        || getGlobalBounds().left + getGlobalBounds().width > 800) {
-        m_position.x = 400.0f;
-        m_position.y = 300.0f;
-    }
-}
-*/
-
 void Snake::update(sf::FloatRect foodRectangle) {
-
     move();
-
-
     collision(foodRectangle);
-
     m_changeDirection = false;
 
 }
@@ -110,12 +94,22 @@ void Snake::draw(sf::RenderWindow* m_window) {
     }
 }
 
-
-// NOT FINISHED
+// NOT FINISHED Check if the snake collided and reset or update snake
 void Snake::collision(sf::FloatRect foodRectangle) {
-    if (getHeadRectangle().intersects(foodRectangle)) {
+    sf::FloatRect headRectangle{ getHeadRectangle() };
+    if (headRectangle.intersects(foodRectangle)) {
         m_snakeBody.push_back(m_previousPosition[m_snakeLength - 1]);
         m_previousPosition.push_back(m_previousPosition[m_snakeLength - 1]);
         ++m_snakeLength;
     }
+    else if (headRectangle.left < 0 || headRectangle.top < 0 || headRectangle.left + headRectangle.width > 800
+             || headRectangle.top + headRectangle.height > 600) {
+                m_position.x = { 400.0f };
+                m_position.y = { 300.0f };
+                m_snakeLength = { 1 };
+                m_snakeBody.clear();
+                m_snakeBody = { m_body };
+                m_previousPosition.clear();
+                m_previousPosition = { m_body };
+             }
 }

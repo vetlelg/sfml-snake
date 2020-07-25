@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
+					<Add option="-std=c++14" />
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
