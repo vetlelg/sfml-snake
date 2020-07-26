@@ -12,9 +12,11 @@ public:
     Food();
     ~Food();
 
-    void update();
+    void update(sf::FloatRect headRectangle, sf::Vector2f position);
 
     void draw(sf::RenderWindow* m_window);
+
+    void collision(sf::FloatRect headRectangle, sf::Vector2f position);
 
     sf::FloatRect getGlobalBounds();
 };

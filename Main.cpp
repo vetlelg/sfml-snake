@@ -1,6 +1,5 @@
 #include "Engine.h"
 
-
 int main()
 {
     // Create the game engine object

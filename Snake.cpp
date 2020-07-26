@@ -1,6 +1,5 @@
 #include "Snake.h"
 #include "Engine.h"
-
 #include <iostream>
 
 Snake::Snake() {
