@@ -1,2 +1,2 @@
 # sfml-snake
-Snake created in c++ with SFML
+Snake created in C++ with SFML
