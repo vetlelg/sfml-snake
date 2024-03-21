@@ -1,2 +1,2 @@
 # sfml-snake
-Snake created in C++ with SFML. My first semi-big object-oriented programming project
+Simple Snake game created in C++ with SFML. My first object-oriented programming project. Written in 2017
